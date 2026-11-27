@@ -1,0 +1,10 @@
+:{$PORT:80} {
+	root * /app/public
+	encode zstd gzip
+
+	# Serve real files from public/ directly and send everything else to the
+	# Laravel front controller.
+	php_server {
+		try_files {path} index.php
+	}
+}
