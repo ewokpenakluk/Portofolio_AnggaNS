@@ -32,6 +32,14 @@ class BrevoApiTransport extends AbstractTransport
 
     protected function doSend(SentMessage $message): void
     {
+        // A missing key produces Brevo's vague "authentication not found in
+        // headers", so fail with an actionable message instead.
+        if ($this->apiKey === '') {
+            throw new TransportException(
+                'BREVO_API_KEY is empty. Set it in the environment and redeploy.',
+            );
+        }
+
         $email = MessageConverter::toEmail($message->getOriginalMessage());
 
         if (! $email instanceof Email) {

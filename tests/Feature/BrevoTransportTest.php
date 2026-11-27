@@ -71,4 +71,24 @@ class BrevoTransportTest extends TestCase
 
         Mail::to('owner@example.com')->send(new ContactMail($this->contactData()));
     }
+
+    public function test_brevo_transport_reports_a_missing_api_key_clearly(): void
+    {
+        Http::fake();
+
+        config([
+            'mail.default' => 'brevo',
+            'mail.mailers.brevo.key' => '',
+            'mail.from.address' => 'owner@example.com',
+        ]);
+
+        Mail::forgetMailers();
+
+        $this->expectException(TransportException::class);
+        $this->expectExceptionMessage('BREVO_API_KEY is empty');
+
+        Mail::to('owner@example.com')->send(new ContactMail($this->contactData()));
+
+        Http::assertNothingSent();
+    }
 }
