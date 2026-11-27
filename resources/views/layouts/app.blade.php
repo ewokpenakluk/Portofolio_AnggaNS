@@ -63,43 +63,50 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
 
-                {{-- Left: Clean Brand Logo --}}
-                <div class="flex items-center gap-3">
-                    <a href="{{ route('home') }}" class="flex items-center gap-2.5 group">
-                        <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center font-black text-base shadow-sm group-hover:scale-105 transition-transform duration-200">
-                            <span>A</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="font-black text-slate-900 text-sm tracking-widest uppercase group-hover:text-blue-600 transition">PORTFOLIO</span>
-                        </div>
-                    </a>
-                </div>
+                {{-- Left: Brand lockup — monogram + name --}}
+                <a href="{{ route('home') }}"
+                   class="group flex items-center gap-2.5 lg:gap-3"
+                   aria-label="Angga Nugraha Sofyan — beranda">
+                    <span class="relative inline-flex h-9 w-9 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-[12px] lg:rounded-[14px] bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_8px_18px_-8px_rgba(37,99,235,0.75)] ring-1 ring-inset ring-white/25 transition-transform duration-300 ease-out group-hover:-rotate-6 group-hover:scale-[1.06]">
+                        <span class="text-[13px] lg:text-[15px] font-black leading-none tracking-tight">AN</span>
+                        <span class="absolute -right-1 -top-1 h-2 w-2 lg:h-2.5 lg:w-2.5 rounded-full bg-[#ea580c] ring-2 ring-white transition-transform duration-300 ease-out group-hover:scale-125"></span>
+                    </span>
+
+                    <span class="flex flex-col justify-center leading-none">
+                        <span class="text-[13px] lg:text-[15px] font-black tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-blue-700">
+                            Angga Nugraha
+                        </span>
+                        <span class="mt-1.5 hidden lg:block text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400 transition-colors duration-200 group-hover:text-[#ea580c]">
+                            Full-Stack Developer
+                        </span>
+                    </span>
+                </a>
 
                 {{-- Center: Desktop Pill Nav Links --}}
                 <nav class="hidden md:flex items-center gap-1.5 p-1.5 bg-slate-100/80 border border-slate-200/80 rounded-full text-xs font-semibold text-slate-600 shadow-2xs">
                     <a href="{{ request()->routeIs('home') ? '#tentang' : route('home') . '#tentang' }}"
                        :class="activeSection === 'tentang' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'"
-                       class="px-4 py-1.5 rounded-full transition-all duration-200">
+                       class="px-3 lg:px-4 py-1.5 rounded-full transition-all duration-200">
                         Tentang
                     </a>
                     <a href="{{ request()->routeIs('home') ? '#keahlian' : route('home') . '#keahlian' }}"
                        :class="activeSection === 'keahlian' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'"
-                       class="px-4 py-1.5 rounded-full transition-all duration-200">
+                       class="px-3 lg:px-4 py-1.5 rounded-full transition-all duration-200">
                         Keahlian
                     </a>
                     <a href="{{ request()->routeIs('home') ? '#proyek' : route('home') . '#proyek' }}"
                        :class="activeSection === 'proyek' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'"
-                       class="px-4 py-1.5 rounded-full transition-all duration-200">
+                       class="px-3 lg:px-4 py-1.5 rounded-full transition-all duration-200">
                         Proyek
                     </a>
                     <a href="{{ request()->routeIs('home') ? '#pengalaman' : route('home') . '#pengalaman' }}"
                        :class="activeSection === 'pengalaman' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'"
-                       class="px-4 py-1.5 rounded-full transition-all duration-200">
+                       class="px-3 lg:px-4 py-1.5 rounded-full transition-all duration-200">
                         Pengalaman
                     </a>
                     <a href="{{ request()->routeIs('home') ? '#kontak' : route('home') . '#kontak' }}"
                        :class="activeSection === 'kontak' ? 'bg-white text-blue-600 shadow-xs' : 'text-slate-600 hover:text-slate-900'"
-                       class="px-4 py-1.5 rounded-full transition-all duration-200">
+                       class="px-3 lg:px-4 py-1.5 rounded-full transition-all duration-200">
                         Kontak
                     </a>
                 </nav>
@@ -181,12 +188,15 @@
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
 
                 {{-- Left: Brand --}}
-                <div class="flex items-center gap-2.5">
-                    <div class="w-7 h-7 rounded-lg bg-blue-600 text-white flex items-center justify-center font-black text-xs">
-                        <span>A</span>
-                    </div>
-                    <span class="font-black text-slate-900 text-xs tracking-widest uppercase">PORTFOLIO</span>
-                </div>
+                <a href="{{ route('home') }}" class="group flex items-center gap-2.5" aria-label="Angga Nugraha Sofyan — beranda">
+                    <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-gradient-to-br from-blue-500 via-blue-600 to-indigo-700 text-white shadow-[0_6px_14px_-8px_rgba(37,99,235,0.8)] ring-1 ring-inset ring-white/25 transition-transform duration-300 group-hover:-rotate-6">
+                        <span class="text-[11px] font-black leading-none tracking-tight">AN</span>
+                    </span>
+                    <span class="flex flex-col leading-none">
+                        <span class="text-xs font-black tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-blue-700">Angga Nugraha</span>
+                        <span class="mt-1 text-[8px] font-bold uppercase tracking-[0.16em] text-slate-400">Full-Stack Developer</span>
+                    </span>
+                </a>
 
                 {{-- Center Links --}}
                 <div class="flex items-center gap-6 text-xs font-semibold text-slate-600">
